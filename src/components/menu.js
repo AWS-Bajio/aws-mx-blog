@@ -1,9 +1,9 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React, { Component } from "react"
-import styled from "styled-components"
-import "../styles/global.css"
-import { FaTimes } from "react-icons/fa"
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import '../styles/global.css';
+import { FaTimes } from 'react-icons/fa';
 
 /**
  * MenuWrapper element, used to set style to a component.
@@ -38,7 +38,7 @@ const MenuWrapper = styled.div`
     justify-self: end;
     text-align: right;
   }
-`
+`;
 
 /**
  * Menu component
@@ -46,7 +46,6 @@ const MenuWrapper = styled.div`
  */
 
 class Menu extends Component {
-
   onClickClose() {
     //const menu = document.getElementById("drawer-menu")
     //menu.classList.add("menu-hidden")
@@ -76,18 +75,19 @@ class Menu extends Component {
               <Link onClick={()=>{this.onClickClose()}} to="/">contacto</Link>
             </li>
           </ul>
+
         </div>
       </MenuWrapper>
-    )
+    );
   }
 }
 
 Menu.propTypes = {
   open: PropTypes.bool,
-}
+};
 
 Menu.defaultProps = {
   open: false,
-}
+};
 
-export default Menu
+export default Menu;
