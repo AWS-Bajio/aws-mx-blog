@@ -1,17 +1,17 @@
-import "../styles/global.css"
-import React from "react"
-import { Link } from "gatsby"
-import TimeAgo from "react-timeago"
-import esStrings from "react-timeago/lib/language-strings/es"
-import buildFormatter from "react-timeago/lib/formatters/buildFormatter"
-import TextTruncate from "react-text-truncate"
-import Wrapper from "../styles/PostItem"
+import '../styles/global.css';
+import React from 'react';
+import { Link } from 'gatsby';
+import TimeAgo from 'react-timeago';
+import esStrings from 'react-timeago/lib/language-strings/es';
+import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
+import TextTruncate from 'react-text-truncate';
+import Wrapper from '../styles/PostItem';
 
 // Formatter to be used with the TimeAgo library to show text in spanish.
-const formatter = buildFormatter(esStrings)
+const formatter = buildFormatter(esStrings);
 
 function normalizeText(text) {
-  return text.replace("<p>", "").replace("</p>", "")
+  return text.replace('<p>', '').replace('</p>', '');
 }
 
 const PostItem = ({
@@ -19,10 +19,10 @@ const PostItem = ({
   isFeaturedPost = false,
   hideDescription = false,
 }) => {
-  const { slug, title, featured_media, createdAt, authors, excerpt } = post
+  const { slug, title, featured_media, createdAt, authors, excerpt } = post;
 
   const renderPostDescription = () => {
-    if (hideDescription) return null
+    if (hideDescription) return null;
 
     return (
       <>
@@ -36,21 +36,21 @@ const PostItem = ({
           style={
             isFeaturedPost
               ? { fontSize: 16 }
-              : { fontSize: 16, lineHeight: "normal" }
+              : { fontSize: 16, lineHeight: 'normal' }
           }
         />
       </>
-    )
-  }
+    );
+  };
 
   return (
     <Wrapper>
       <Link to={`/${slug}`}>
         <div
-          className={isFeaturedPost ? "img-cover" : "img-container"}
+          className={isFeaturedPost ? 'img-cover' : 'img-container'}
           style={{
             backgroundImage: `url(${featured_media})`,
-            backgroundRepeat: "no-repeat",
+            backgroundRepeat: 'no-repeat',
             backgroundSize: `cover`,
           }}
         ></div>
@@ -64,7 +64,7 @@ const PostItem = ({
             <h3 dangerouslySetInnerHTML={{ __html: title }} />
           ) : (
             <h4
-              style={{ color: "black" }}
+              style={{ color: 'black' }}
               dangerouslySetInnerHTML={{ __html: title }}
             />
           )}
@@ -72,7 +72,7 @@ const PostItem = ({
         </div>
       </Link>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default PostItem
+export default PostItem;
