@@ -1,6 +1,6 @@
 import { useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect } from 'react';
 import SearchPanelWrapper from '../styles/SearchPanel';
 import '../styles/global.css';
 import { graphql } from 'gatsby';
@@ -12,13 +12,15 @@ import SearchResultItem from '../components/SearchResultItem';
  * SearchPanel will render all the posts that will be filtered by a JS function.
  */
 const SearchPanel = ({ searchText }) => {
-  if (searchText.length >= 3) {
-    document.body.style = 'overflow:hidden';
-    document.documentElement.style = 'overflow:hidden';
-  } else {
-    document.body.style = 'overflow:auto';
-    document.documentElement.style = 'overflow:scroll';
-  }
+  useEffect(() => {
+    if (searchText.length >= 3) {
+      document.body.style = 'overflow:hidden';
+      document.documentElement.style = 'overflow:hidden';
+    } else {
+      document.body.style = 'overflow:auto';
+      document.documentElement.style = 'overflow:scroll';
+    }
+  }, [searchText]);
 
   const data = useStaticQuery(graphql`
     query {
