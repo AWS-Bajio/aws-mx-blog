@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import ScrollingLayout from '../components/ScrollingLayout';
 import SEO from '../components/SEO';
 import SideNav from '../components/sidenav';
-import PostItem from '../components/PostItem';
+import DeprecatedPostItem from '../components/DeprecatedPostItem';
 import Wrapper from '../styles/blog';
 import { graphql } from 'gatsby';
+import PostsTable from "../components/posts/PostsTable"
 
 class Blog extends Component {
   arePostsAvailable = () => {
@@ -32,24 +33,19 @@ class Blog extends Component {
     const posts = this.getPosts();
     return (
       <div className="featured-post">
-        <PostItem post={posts[0]} key="0" i="0" isFeaturedPost={true} />
+        <DeprecatedPostItem post={posts[0]} key="0" i="0" isFeaturedPost={true} />
       </div>
     );
   };
 
   renderPosts = () => {
-    if (!this.arePostsAvailable()) {
-      return 'No hay entradas disponibles';
-    }
-
+    const {
+      pageContext: { numPages, currentPage },
+    } = this.props;
     // Getting all posts except the first one already used as MainPost
     const posts = this.getPosts().slice(1);
     return (
-      <div className="posts">
-        {posts.map((post, key) => (
-          <PostItem post={post} key={key} i={key} />
-        ))}
-      </div>
+      <PostsTable posts={posts} currentPage={currentPage || 0} totalNumberOfPages={numPages || 0} />
     );
   };
 
