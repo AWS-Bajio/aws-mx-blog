@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import PageLayout from './page-layout';
@@ -9,6 +9,15 @@ import 'moment/locale/es';
 import Wrapper from '../styles/Post';
 import PostFooter from './PostFooter';
 import { Disqus } from 'gatsby-plugin-disqus';
+import ReactMarkdown from 'react-markdown';
+import PrismJS from 'prismjs';
+import 'prismjs/themes/prism-okaidia.css';
+
+const md = `
+  ~~~js
+  console.log('It works!');
+  ~~~
+`;
 
 const Post = ({
   data: {
@@ -21,6 +30,10 @@ const Post = ({
   useLayoutEffect(() => {
     setUrl(window.location.href);
   }, []);
+
+  useEffect(() => {
+    PrismJS.highlightAll();
+  }, [content, md]);
 
   return (
     <Wrapper>
@@ -43,11 +56,9 @@ const Post = ({
               Por: {authors.items[0].author.firstName}
             </p>
           </div>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: content,
-            }}
-          />
+          <ReactMarkdown>
+            {content + md}
+          </ReactMarkdown>
           {id && (
             <Disqus
               config={{
