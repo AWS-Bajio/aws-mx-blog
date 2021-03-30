@@ -1,6 +1,6 @@
-export function strip(html){
+export function strip(html) {
   let doc = new DOMParser().parseFromString(html, 'text/html');
-  return doc.body.textContent || "";
+  return doc.body.textContent || '';
 }
 
 export function getFirstAuthorName(authors) {
