@@ -18,7 +18,6 @@ const Post = ({
 }) => {
   const [url, setUrl] = useState();
   const { id, slug, featured_media, createdAt, authors, content, title } = post;
-  console.log(content)
   useLayoutEffect(() => {
     setUrl(window.location.href);
   }, []);
