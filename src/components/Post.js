@@ -9,6 +9,9 @@ import 'moment/locale/es';
 import Wrapper from '../styles/Post';
 import PostFooter from './PostFooter';
 import { Disqus } from 'gatsby-plugin-disqus';
+import ReactMarkdown from 'react-markdown'
+const gfm = require('remark-gfm')
+import MarkdownPreview from '@uiw/react-markdown-preview';
 
 const Post = ({
   data: {
@@ -17,7 +20,7 @@ const Post = ({
 }) => {
   const [url, setUrl] = useState();
   const { id, slug, featured_media, createdAt, authors, content, title } = post;
-
+  console.log(content)
   useLayoutEffect(() => {
     setUrl(window.location.href);
   }, []);
@@ -43,10 +46,8 @@ const Post = ({
               Por: {authors.items[0].author.firstName}
             </p>
           </div>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: content,
-            }}
+          <MarkdownPreview 
+            source={content} 
           />
           {id && (
             <Disqus
