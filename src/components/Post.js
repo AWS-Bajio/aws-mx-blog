@@ -9,8 +9,6 @@ import 'moment/locale/es';
 import Wrapper from '../styles/Post';
 import PostFooter from './PostFooter';
 import { Disqus } from 'gatsby-plugin-disqus';
-import ReactMarkdown from 'react-markdown'
-const gfm = require('remark-gfm')
 import MarkdownPreview from '@uiw/react-markdown-preview';
 
 const Post = ({
