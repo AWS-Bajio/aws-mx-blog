@@ -78,25 +78,25 @@ const Header = ({location}) => {
       <Menu/>
       <div id="header-content" className="container">
         <div id="header-mobile" className="container hide-on-large-and-up">
-            <div className="menu-icon-container pointer icon-container"
-                 onClick={ ()=>openMenu(!menu) }
-                 onKeyDown={ ()=>openMenu(!menu) }
-                 role={"button"}
-                 tabIndex={0}>
-              <FaBars id="bars-icon" className="behind icon-default"/>
-              <FaArrowLeft id="left-arrow-icon" className="behind icon-hover"/>
-            </div>
-            <Logo className="logo-icon"/>
-            <div
-              className="search-icon-container pointer"
-              onClick={ onClickMobileSearchToggle }
-              onKeyDown={ onClickMobileSearchToggle }
-              role={"button"}
-              tabIndex={0}
-            >
-              <FaSearch/>
-            </div>
+          <div className="menu-icon-container pointer icon-container"
+               onClick={ ()=>openMenu(!menu) }
+               onKeyDown={ ()=>openMenu(!menu) }
+               role={"button"}
+               tabIndex={0}>
+            <FaBars id="bars-icon" className="behind icon-default"/>
+            <FaArrowLeft id="left-arrow-icon" className="behind icon-hover"/>
           </div>
+          <Logo className="logo-icon"/>
+          <div
+            className="search-icon-container pointer"
+            onClick={ onClickMobileSearchToggle }
+            onKeyDown={ onClickMobileSearchToggle }
+            role={"button"}
+            tabIndex={0}
+          >
+            <FaSearch/>
+          </div>
+        </div>
         <div id="header-search-mobile" className="is-hidden ">
           <span className="closable-mobile">
             <input
