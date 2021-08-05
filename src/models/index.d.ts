@@ -56,6 +56,8 @@ export declare class Tag {
   readonly posts?: (PostTag | null)[];
   readonly name?: string;
   readonly slug?: string;
+  readonly createdAt: string;
+  readonly updatedAt: string;
   constructor(init: ModelInit<Tag>);
   static copyOf(source: Tag, mutator: (draft: MutableModel<Tag>) => MutableModel<Tag> | void): Tag;
 }
