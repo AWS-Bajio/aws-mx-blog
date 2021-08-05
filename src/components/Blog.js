@@ -55,81 +55,39 @@ const BlogWrapper = styled.div`
   }
 `;
 
-const Blog = ({
-  data: {
-    posts: {
-      postsByCreatedAt: { items: posts },
-    },
-  },
-  pageContext: { numPages, currentPage },
-}) => (
-  <BlogWrapper>
-    <PageLayout title="AWSMX Blog" location="/blog">
-      <div className="container">
-        <div className="blog-container">
-          <div className="entry-container">
-            <Title title="Blog" subtitle="AWS MX" />
-            {/*cover*/}
-            <div className="post-container">
-              {posts.map((post, i) => (
-                <DeprecatedPostItem post={post} key={i} i={i} isCover={i === 0} />
-              ))}
+const Blog = ({ pageContext: { posts, numPages, currentPage } }) => {
+  return (
+    <BlogWrapper>
+      <PageLayout title="AWSMX Blog" location="/blog">
+        <div className="container">
+          <div className="blog-container">
+            <div className="entry-container">
+              <Title title="Blog" subtitle="AWS MX" />
+              {/*cover*/}
+              <div className="post-container">
+                {posts.map((post, i) => (
+                  <DeprecatedPostItem
+                    post={post}
+                    key={i}
+                    i={i}
+                    isCover={i === 0}
+                  />
+                ))}
+              </div>
+              <Paginator
+                numPages={numPages}
+                currentPage={currentPage}
+                baseRoute={'/publicaciones/'}
+              />
             </div>
-            <Paginator
-              numPages={numPages}
-              currentPage={currentPage}
-              baseRoute={'/publicaciones/'}
-            />
           </div>
         </div>
-      </div>
-    </PageLayout>
-  </BlogWrapper>
-);
+      </PageLayout>
+    </BlogWrapper>
+  );
+};
 
 /**
  * Exporting blog
  */
 export default Blog;
-
-/**
- * Query to retrieve every entry from blog
- */
-// eslint-disable-next-line no-undef
-export const postsQuery = graphql`
-  query($nextToken: String, $limit: Int!) {
-    posts {
-      postsByCreatedAt(
-        type: "Post"
-        sortDirection: DESC
-        limit: $limit
-        nextToken: $nextToken
-      ) {
-        items {
-          id
-          title
-          content
-          excerpt
-          slug
-          createdAt
-          featured_media
-          tags {
-            items {
-              tag {
-                name
-              }
-            }
-          }
-          authors {
-            items {
-              author {
-                firstName
-                lastName
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;

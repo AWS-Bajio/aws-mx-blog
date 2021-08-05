@@ -1,5 +1,5 @@
-const path = require("path")
-require("dotenv").config()
+const path = require('path');
+require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
@@ -25,7 +25,7 @@ module.exports = {
         fieldName: `posts`,
         url: process.env.API_URL,
         headers: {
-          "x-api-key": process.env.API_KEY,
+          'x-api-key': process.env.API_KEY,
         },
       },
     },
@@ -48,17 +48,17 @@ module.exports = {
         shortname: `awsmxblog`,
       },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "images",
+        name: 'images',
         path: path.join(__dirname, `src`, `assets`, `images`),
       },
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
           include: /assets/, // See below to configure properly
@@ -69,4 +69,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
