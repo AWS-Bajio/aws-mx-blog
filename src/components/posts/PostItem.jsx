@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { Link } from "gatsby"
 import PropTypes from 'prop-types';
 import { Wrapper, WrapperImg, ContentWrapper, Title, Excerpt } from './styles';
 import Image from '../common/Image';
@@ -6,7 +7,7 @@ import ContentFooter from "./ContentFooter"
 import { strip, getFirstAuthorName } from '../../utils/TextUtils';
 
 const PostItem = ({ post }) => {
-  const { title, featured_media, createdAt, authors, excerpt } = post;
+  const { title, featured_media, createdAt, authors, excerpt, slug } = post;
   const imageStyles = {
     ...WrapperImg,
     backgroundImage: `url(${featured_media})`,
@@ -22,14 +23,16 @@ const PostItem = ({ post }) => {
   },[title, excerpt])
 
   return (
-    <Wrapper>
-      <Image extraStyles={imageStyles} />
-      <ContentWrapper>
-        <Title>{itemTitle}</Title>
-        <Excerpt>{itemExcerpt}</Excerpt>
-        <ContentFooter author={getFirstAuthorName(authors)} postCreationDate={createdAt} />
-      </ContentWrapper>
-    </Wrapper>
+    <Link to={`/${slug}`}>
+      <Wrapper>
+        <Image extraStyles={imageStyles} />
+          <ContentWrapper>
+            <Title>{itemTitle}</Title>
+            <Excerpt>{itemExcerpt}</Excerpt>
+            <ContentFooter author={getFirstAuthorName(authors)} postCreationDate={createdAt} />
+          </ContentWrapper>
+      </Wrapper>
+    </Link>
   )
 };
 
