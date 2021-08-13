@@ -61,37 +61,22 @@ class Menu extends Component {
     return (
       <MenuWrapper id="drawer-menu">
         <div className="menu-close-icon">
-          <FaTimes onClick={() => this.onClickClose()} />
+          <FaTimes onClick={this.onClickClose} />
         </div>
         <div>
           <ul>
             <li>
-              <Link
-                onClick={() => {
-                  this.onClickClose();
-                }}
-                to="/"
-              >
+              <Link onClick={this.onClickClose} to="/">
                 blog
               </Link>
             </li>
             <li>
-              <Link
-                onClick={() => {
-                  this.onClickClose();
-                }}
-                to="/"
-              >
+              <Link onClick={this.onClickClose} to="/">
                 eventos
               </Link>
             </li>
             <li>
-              <Link
-                onClick={() => {
-                  this.onClickClose();
-                }}
-                to="/"
-              >
+              <Link onClick={this.onClickClose} to="/">
                 contacto
               </Link>
             </li>
