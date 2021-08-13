@@ -215,5 +215,6 @@ exports.onCreateWebpackConfig = ({ stage, plugins, actions }) => {
       net: 'empty',
       tls: 'empty',
     },
+    devtool: 'eval-source-map',
   });
 };
