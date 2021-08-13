@@ -49,9 +49,9 @@ class Menu extends Component {
   onClickClose() {
     //const menu = document.getElementById("drawer-menu")
     //menu.classList.add("menu-hidden")
-    const main_content = document.getElementById("main-content")
-    main_content.classList.remove("main-content-mobile-effect")
-    main_content.classList.add("main-content-mobile-second-effect")
+    const main_content = document.getElementById('main-content');
+    main_content.classList.remove('main-content-mobile-effect');
+    main_content.classList.add('main-content-mobile-second-effect');
   }
 
   /**
@@ -61,21 +61,26 @@ class Menu extends Component {
     return (
       <MenuWrapper id="drawer-menu">
         <div className="menu-close-icon">
-          <FaTimes onClick={() => this.onClickClose()} />
+          <FaTimes onClick={this.onClickClose} />
         </div>
         <div>
           <ul>
             <li>
-              <Link onClick={()=>{this.onClickClose()}} to="/">blog</Link>
+              <Link onClick={this.onClickClose} to="/">
+                blog
+              </Link>
             </li>
             <li>
-              <Link onClick={()=>{this.onClickClose()}} to="/">eventos</Link>
+              <Link onClick={this.onClickClose} to="/">
+                eventos
+              </Link>
             </li>
             <li>
-              <Link onClick={()=>{this.onClickClose()}} to="/">contacto</Link>
+              <Link onClick={this.onClickClose} to="/">
+                contacto
+              </Link>
             </li>
           </ul>
-
         </div>
       </MenuWrapper>
     );

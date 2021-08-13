@@ -6,14 +6,13 @@ import SideNav from '../components/sidenav';
 import DeprecatedPostItem from '../components/DeprecatedPostItem';
 import Wrapper from '../styles/blog';
 import { graphql } from 'gatsby';
-import PostsTable from "../components/posts/PostsTable"
+import PostsTable from '../components/posts/PostsTable';
 
 class Blog extends Component {
   arePostsAvailable = () => {
     const posts = this.getPosts();
     return posts.length > 0;
   };
-
 
   getPosts = () => {
     const {
@@ -33,7 +32,12 @@ class Blog extends Component {
     const posts = this.getPosts();
     return (
       <div className="featured-post">
-        <DeprecatedPostItem post={posts[0]} key="0" i="0" isFeaturedPost={true} />
+        <DeprecatedPostItem
+          post={posts[0]}
+          key="0"
+          i="0"
+          isFeaturedPost={true}
+        />
       </div>
     );
   };
@@ -45,7 +49,11 @@ class Blog extends Component {
     // Getting all posts except the first one already used as MainPost
     const posts = this.getPosts().slice(1);
     return (
-      <PostsTable posts={posts} currentPage={currentPage || 0} totalNumberOfPages={numPages || 0} />
+      <PostsTable
+        posts={posts}
+        currentPage={currentPage || 0}
+        totalNumberOfPages={numPages || 0}
+      />
     );
   };
 
@@ -55,7 +63,7 @@ class Blog extends Component {
         <ScrollingLayout location="/blog">
           <SEO title="AWS MX Blog" />
           <div className="container">
-            <div  className="main-content">
+            <div className="main-content">
               {this.renderMainPost()}
               <div className="posts-and-side-content">
                 {this.renderPosts()}
