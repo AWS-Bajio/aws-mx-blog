@@ -15,7 +15,7 @@ const SearchBar = () => {
   } = useStaticQuery(graphql`
     query {
       posts {
-        listTags {
+        listTags(limit: 7) {
           items {
             name
             slug
