@@ -1,19 +1,36 @@
 import "../styles/global.css"
-import React, { Component } from "react"
+import React, { Component, useState } from "react"
 import { Link } from "gatsby"
 import Logo from '../assets/svg/aws-logo.svg';
 import PropTypes from "prop-types"
 import Menu from "./menu"
 import SearchBar from "./SearchBar"
 import Wrapper from "../styles/Header"
-import { FaBars, FaSearch } from "react-icons/fa/index"
-
+import { FaBars, FaSearch, FaArrowLeft} from "react-icons/fa/index"
 
 const Header = ({location}) => {
-  const openMenu = () => {
+  const [menu, setMenu] = useState(false)
+  const openMenu = menuOption => {
+    setMenu(menuOption);
     const main_content = document.getElementById("main-content")
-    main_content.classList.add("main-content-mobile-effect")
-    main_content.classList.remove("main-content-mobile-second-effect")
+    const bar_icon = document.getElementById("bars-icon")
+    const left_icon = document.getElementById("left-arrow-icon")
+    if(menuOption) {
+      main_content.classList.add("main-content-mobile-effect")
+      main_content.classList.remove("main-content-mobile-second-effect")
+      bar_icon.classList.add("icon-default-0")
+      bar_icon.classList.remove("icon-default")
+      left_icon.classList.add("icon-hover-active")
+      bar_icon.classList.remove("icon-hover")
+    } else {
+      main_content.classList.remove("main-content-mobile-effect")
+      main_content.classList.add("main-content-mobile-second-effect")
+      main_content.classList.add("overflowx")
+      bar_icon.classList.add("icon-default")
+      bar_icon.classList.remove("icon-default-0")
+      left_icon.classList.add("icon-hover")
+      left_icon.classList.remove("icon-hover-active")
+    }
   }
 
   /**
@@ -38,26 +55,27 @@ const Header = ({location}) => {
       <Menu/>
       <div id="header-content" className="container">
         <div id="header-mobile" className="container hide-on-large-and-up">
-            <div
-              className="menu-icon-container pointer"
-              onClick={ openMenu }
-              onKeyDown={ openMenu }
-              role={"button"}
-              tabIndex={0}
-            >
-              <FaBars/>
-            </div>
-            <Logo className="logo-icon"/>
-            <div
-              className="search-icon-container pointer"
-              onClick={ onClickSearchToggle }
-              onKeyDown={ onClickSearchToggle }
-              role={"button"}
-              tabIndex={0}
-            >
-              <FaSearch/>
-            </div>
+          <div
+            className="menu-icon-container pointer"
+            onClick={ ()=>openMenu(!menu) }
+            onKeyDown={ ()=>openMenu(!menu) }
+            role={"button"}
+            tabIndex={0}
+          >
+            <FaBars id="bars-icon" className="behind icon-default"/>
+            <FaArrowLeft id="left-arrow-icon" className="behind icon-hover"/>
           </div>
+          <Logo className="logo-icon"/>
+          <div
+            className="search-icon-container pointer"
+            onClick={ onClickSearchToggle }
+            onKeyDown={ onClickSearchToggle }
+            role={"button"}
+            tabIndex={0}
+          >
+            <FaSearch/>
+          </div>
+        </div>
         <Link to="/">
           <Logo className="logo-icon hide-on-med-and-down"/>
         </Link>
