@@ -24,8 +24,7 @@ const Menu = () => {
       <div className="container-logo">
         <Logo className="mobile-logo-menu"/>
       </div>
-      <div className="menu-close-icon">
-      </div>
+      <div className="menu-close-icon" />
       <div>
         <ul>
           <li>

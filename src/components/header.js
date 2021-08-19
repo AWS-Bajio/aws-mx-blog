@@ -12,10 +12,10 @@ const Header = ({location}) => {
   const [menu, setMenu] = useState(false)
   const openMenu = menuOption => {
     setMenu(menuOption);
+    const main_content = document.getElementById("main-content")
+    const bar_icon = document.getElementById("bars-icon")
+    const left_icon = document.getElementById("left-arrow-icon")
     if(menuOption) {
-      const main_content = document.getElementById("main-content")
-      const bar_icon = document.getElementById("bars-icon")
-      const left_icon = document.getElementById("left-arrow-icon")
       main_content.classList.add("main-content-mobile-effect")
       main_content.classList.remove("main-content-mobile-second-effect")
       bar_icon.classList.add("icon-default-0")
@@ -23,9 +23,6 @@ const Header = ({location}) => {
       left_icon.classList.add("icon-hover-active")
       bar_icon.classList.remove("icon-hover")
     } else {
-      const main_content = document.getElementById("main-content")
-      const bar_icon = document.getElementById("bars-icon")
-      const left_icon = document.getElementById("left-arrow-icon")
       main_content.classList.remove("main-content-mobile-effect")
       main_content.classList.add("main-content-mobile-second-effect")
       main_content.classList.add("overflowx")
