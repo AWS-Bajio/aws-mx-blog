@@ -17,15 +17,18 @@ export const createAuthor = /* GraphQL */ `
       facebook
       github
       youtube
-      _version
-      _deleted
-      _lastChangedAt
+      posts {
+        items {
+          id
+          authorID
+          postID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      posts {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -45,15 +48,18 @@ export const updateAuthor = /* GraphQL */ `
       facebook
       github
       youtube
-      _version
-      _deleted
-      _lastChangedAt
+      posts {
+        items {
+          id
+          authorID
+          postID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      posts {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -73,15 +79,18 @@ export const deleteAuthor = /* GraphQL */ `
       facebook
       github
       youtube
-      _version
-      _deleted
-      _lastChangedAt
+      posts {
+        items {
+          id
+          authorID
+          postID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      posts {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -92,25 +101,34 @@ export const createPost = /* GraphQL */ `
   ) {
     createPost(input: $input, condition: $condition) {
       id
+      authors {
+        items {
+          id
+          authorID
+          postID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       title
       content
       featured_media
       slug
       type
+      tags {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       excerpt
-      _version
-      _deleted
-      _lastChangedAt
       updatedAt
-      authors {
-        nextToken
-        startedAt
-      }
-      tags {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -121,25 +139,34 @@ export const updatePost = /* GraphQL */ `
   ) {
     updatePost(input: $input, condition: $condition) {
       id
+      authors {
+        items {
+          id
+          authorID
+          postID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       title
       content
       featured_media
       slug
       type
+      tags {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       excerpt
-      _version
-      _deleted
-      _lastChangedAt
       updatedAt
-      authors {
-        nextToken
-        startedAt
-      }
-      tags {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -150,25 +177,34 @@ export const deletePost = /* GraphQL */ `
   ) {
     deletePost(input: $input, condition: $condition) {
       id
+      authors {
+        items {
+          id
+          authorID
+          postID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       title
       content
       featured_media
       slug
       type
+      tags {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       excerpt
-      _version
-      _deleted
-      _lastChangedAt
       updatedAt
-      authors {
-        nextToken
-        startedAt
-      }
-      tags {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -179,17 +215,20 @@ export const createTag = /* GraphQL */ `
   ) {
     createTag(input: $input, condition: $condition) {
       id
+      posts {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       name
       slug
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
-      posts {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -200,17 +239,20 @@ export const updateTag = /* GraphQL */ `
   ) {
     updateTag(input: $input, condition: $condition) {
       id
+      posts {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       name
       slug
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
-      posts {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -221,17 +263,20 @@ export const deleteTag = /* GraphQL */ `
   ) {
     deleteTag(input: $input, condition: $condition) {
       id
+      posts {
+        items {
+          id
+          postID
+          tagID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       name
       slug
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
-      posts {
-        nextToken
-        startedAt
-      }
     }
   }
 `;
@@ -244,11 +289,6 @@ export const createAuthorPost = /* GraphQL */ `
       id
       authorID
       postID
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       author {
         id
         firstName
@@ -260,26 +300,31 @@ export const createAuthorPost = /* GraphQL */ `
         facebook
         github
         youtube
-        _version
-        _deleted
-        _lastChangedAt
+        posts {
+          nextToken
+        }
         createdAt
         updatedAt
       }
       post {
         id
+        authors {
+          nextToken
+        }
         title
         content
         featured_media
         slug
         type
+        tags {
+          nextToken
+        }
         createdAt
         excerpt
-        _version
-        _deleted
-        _lastChangedAt
         updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -292,11 +337,6 @@ export const updateAuthorPost = /* GraphQL */ `
       id
       authorID
       postID
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       author {
         id
         firstName
@@ -308,26 +348,31 @@ export const updateAuthorPost = /* GraphQL */ `
         facebook
         github
         youtube
-        _version
-        _deleted
-        _lastChangedAt
+        posts {
+          nextToken
+        }
         createdAt
         updatedAt
       }
       post {
         id
+        authors {
+          nextToken
+        }
         title
         content
         featured_media
         slug
         type
+        tags {
+          nextToken
+        }
         createdAt
         excerpt
-        _version
-        _deleted
-        _lastChangedAt
         updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -340,11 +385,6 @@ export const deleteAuthorPost = /* GraphQL */ `
       id
       authorID
       postID
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       author {
         id
         firstName
@@ -356,26 +396,31 @@ export const deleteAuthorPost = /* GraphQL */ `
         facebook
         github
         youtube
-        _version
-        _deleted
-        _lastChangedAt
+        posts {
+          nextToken
+        }
         createdAt
         updatedAt
       }
       post {
         id
+        authors {
+          nextToken
+        }
         title
         content
         featured_media
         slug
         type
+        tags {
+          nextToken
+        }
         createdAt
         excerpt
-        _version
-        _deleted
-        _lastChangedAt
         updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -388,35 +433,35 @@ export const createPostTag = /* GraphQL */ `
       id
       postID
       tagID
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       post {
         id
+        authors {
+          nextToken
+        }
         title
         content
         featured_media
         slug
         type
+        tags {
+          nextToken
+        }
         createdAt
         excerpt
-        _version
-        _deleted
-        _lastChangedAt
         updatedAt
       }
       tag {
         id
+        posts {
+          nextToken
+        }
         name
         slug
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -429,35 +474,35 @@ export const updatePostTag = /* GraphQL */ `
       id
       postID
       tagID
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       post {
         id
+        authors {
+          nextToken
+        }
         title
         content
         featured_media
         slug
         type
+        tags {
+          nextToken
+        }
         createdAt
         excerpt
-        _version
-        _deleted
-        _lastChangedAt
         updatedAt
       }
       tag {
         id
+        posts {
+          nextToken
+        }
         name
         slug
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -470,35 +515,35 @@ export const deletePostTag = /* GraphQL */ `
       id
       postID
       tagID
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
       post {
         id
+        authors {
+          nextToken
+        }
         title
         content
         featured_media
         slug
         type
+        tags {
+          nextToken
+        }
         createdAt
         excerpt
-        _version
-        _deleted
-        _lastChangedAt
         updatedAt
       }
       tag {
         id
+        posts {
+          nextToken
+        }
         name
         slug
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
+      createdAt
+      updatedAt
     }
   }
 `;

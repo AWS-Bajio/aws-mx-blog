@@ -10,14 +10,14 @@ import Logo from "../assets/svg/aws-logo.svg"
 
 const Menu = () => {
 
-    const onClickClose = () => {
-      //const menu = document.getElementById("drawer-menu")
-      //menu.classList.add("menu-hidden");
-      const main_content = document.getElementById("main-content")
-      main_content.classList.remove("main-content-mobile-effect")
-      main_content.classList.add("main-content-mobile-second-effect")
-      main_content.classList.add("overflowx")
-    }
+  const onClickClose = () => {
+    //const menu = document.getElementById("drawer-menu")
+    //menu.classList.add("menu-hidden");
+    const main_content = document.getElementById("main-content")
+    main_content.classList.remove("main-content-mobile-effect")
+    main_content.classList.add("main-content-mobile-second-effect")
+    main_content.classList.add("overflowx")
+  }
 
   return (
     <MenuWrapper id="drawer-menu">
