@@ -4,7 +4,7 @@ import SEO from './SEO';
 import styled from 'styled-components';
 import SideNav from './sidenav';
 import Title from './title';
-import PostItem from './PostItem';
+import DeprecatedPostItem from './DeprecatedPostItem';
 import Paginator from './paginator';
 import { graphql } from 'gatsby';
 import 'react-multi-carousel/lib/styles.css';
@@ -47,12 +47,7 @@ const TagWrapper = styled.div`
 `;
 
 const Tag = ({
-  data: {
-    posts: {
-      postsByTag: { items },
-    },
-  },
-  pageContext: { tagName, numPages, currentPage, slug },
+  pageContext: { posts, tagName, numPages, currentPage, slug },
 }) => {
   return (
     <TagWrapper>
@@ -64,8 +59,13 @@ const Tag = ({
               <Title title={tagName} subtitle="AWS MX"></Title>
               {/*cover*/}
               <div className="post-container">
-                {items.map((item, i) => (
-                  <PostItem post={item.post} key={i} i={i} isCover={i === 0} />
+                {posts.map((item, i) => (
+                  <DeprecatedPostItem
+                    post={item.post}
+                    key={i}
+                    i={i}
+                    isCover={i === 0}
+                  />
                 ))}
               </div>
               <Paginator
@@ -86,44 +86,3 @@ const Tag = ({
  * Exporting tag
  */
 export default Tag;
-
-/**
- * Query to retrieve every entry from blog
- */
-// eslint-disable-next-line no-undef
-export const postsQuery = graphql`
-  query($nextToken: String, $limit: Int!, $id: ID!) {
-    posts {
-      postsByTag(limit: $limit, nextToken: $nextToken, tagID: $id) {
-        items {
-          post {
-            id
-            title
-            content
-            excerpt
-            slug
-            createdAt
-            featured_media
-            tags {
-              items {
-                tag {
-                  id
-                  name
-                }
-              }
-            }
-            authors {
-              items {
-                author {
-                  id
-                  firstName
-                  lastName
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;

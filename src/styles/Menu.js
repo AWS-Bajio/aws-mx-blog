@@ -21,8 +21,16 @@ export default styled.div`
   color: black !important;
 
   .mobile-logo-menu {
-    margin-right: 10% !important;
-    margin-top: 20% !important;
+    position: absolute;
+    width: 210px;
+    position: absolute;
+    top: 0;
+    left: -40px;
+    margin-top: 10%;
+  }
+  
+  .container-logo{
+    margin-top: 10% !important;
   }
   
   div {

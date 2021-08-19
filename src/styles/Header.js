@@ -17,9 +17,7 @@ export default styled.header`
   
   .behind {
     position: absolute;
-    top: -10px;
-    left: 0;
-    display: block;
+    top: 35%;
   }
   
   .icon-default {
