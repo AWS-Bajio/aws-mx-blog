@@ -22,10 +22,6 @@ const Post = ({
     setUrl(window.location.href);
   }, []);
 
-  useEffect(() => {
-    PrismJS.highlightAll();
-  }, [content, md]);
-
   return (
     <Wrapper>
       <PageLayout
