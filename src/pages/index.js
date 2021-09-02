@@ -1,5 +1,5 @@
 import 'react-multi-carousel/lib/styles.css';
-import React, { Component } from 'react';
+import React from 'react';
 import ScrollingLayout from '../components/ScrollingLayout';
 import SEO from '../components/SEO';
 import SideNav from '../components/sidenav';
@@ -7,83 +7,60 @@ import DeprecatedPostItem from '../components/DeprecatedPostItem';
 import Wrapper from '../styles/blog';
 import { graphql } from 'gatsby';
 import PostsTable from '../components/posts/PostsTable';
+import PropTypes from 'prop-types';
 
-class Blog extends Component {
-  arePostsAvailable = () => {
-    const posts = this.getPosts();
-    return posts.length > 0;
-  };
+const Index = ({ data, pageContext }) => {
+  const {
+    posts: {
+      postsByCreatedAt: { items: postItems },
+    },
+  } = data;
 
-  getPosts = () => {
-    const {
-      data: {
-        posts: {
-          postsByCreatedAt: { items },
-        },
-      },
-    } = this.props;
-    return items;
-  };
+  const { numPages, currentPage } = pageContext;
 
-  renderMainPost = () => {
-    if (!this.arePostsAvailable()) {
-      return null;
-    }
-    const posts = this.getPosts();
-    return (
-      <div className="featured-post">
-        <DeprecatedPostItem
-          post={posts[0]}
-          key="0"
-          i="0"
-          isFeaturedPost={true}
-        />
-      </div>
-    );
-  };
+  return (
+    <Wrapper>
+      <ScrollingLayout location="/blog">
+        <SEO title="AWS MX Blog" />
+        <div className="container">
+          <div className="main-content">
+            <div className="featured-post">
+              <DeprecatedPostItem
+                post={postItems[0]}
+                key="0"
+                i="0"
+                isFeaturedPost={true}
+              />
+            </div>
+            <div className="posts-and-side-content">
+              {/* The featured post is removed using slice(1)*/}
+              <PostsTable
+                posts={postItems.slice(1)}
+                currentPage={currentPage || 0}
+                totalNumberOfPages={numPages || 0}
+              />
 
-  renderPosts = () => {
-    const {
-      pageContext: { numPages, currentPage },
-    } = this.props;
-    // Getting all posts except the first one already used as MainPost
-    const posts = this.getPosts().slice(1);
-    return (
-      <PostsTable
-        posts={posts}
-        currentPage={currentPage || 0}
-        totalNumberOfPages={numPages || 0}
-      />
-    );
-  };
-
-  render() {
-    return (
-      <Wrapper>
-        <ScrollingLayout location="/blog">
-          <SEO title="AWS MX Blog" />
-          <div className="container">
-            <div className="main-content">
-              {this.renderMainPost()}
-              <div className="posts-and-side-content">
-                {this.renderPosts()}
-                <div className="side-content">
-                  <SideNav />
-                  {/*TODO: Add collaborators component*/}
-                  <div className="collaborators" />
-                  {/*TODO: Add communities component*/}
-                  <div className="communities" />
-                </div>
+              <div className="side-content">
+                <SideNav />
+                {/*TODO: Add collaborators component*/}
+                <div className="collaborators" />
+                {/*TODO: Add communities component*/}
+                <div className="communities" />
               </div>
             </div>
           </div>
-        </ScrollingLayout>
-      </Wrapper>
-    );
-  }
-}
+        </div>
+      </ScrollingLayout>
+    </Wrapper>
+  );
+};
 
-export default Blog;
+export default Index;
+
+Index.propTypes = {
+  data: PropTypes.object.isRequired,
+  pageContext: PropTypes.object.isRequired,
+};
 
 /**
  * Query to retrieve every entry from blog
