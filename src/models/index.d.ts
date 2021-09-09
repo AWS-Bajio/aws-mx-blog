@@ -16,6 +16,7 @@ export declare class Event {
   readonly location?: string;
   readonly priority?: number;
   readonly type?: string;
+  readonly link?: string;
   constructor(init: ModelInit<Event>);
   static copyOf(source: Event, mutator: (draft: MutableModel<Event>) => MutableModel<Event> | void): Event;
 }

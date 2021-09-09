@@ -79,6 +79,13 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
+                },
+                "link": {
+                    "name": "link",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
                 }
             },
             "syncable": true,
@@ -621,5 +628,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "54727db035bee8ad32ffd2c3baaaa3be"
+    "version": "bdc1812389e99ecadfbfab58f35cfecd"
 };
