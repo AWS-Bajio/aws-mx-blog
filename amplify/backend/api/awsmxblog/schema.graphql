@@ -1,16 +1,14 @@
 type Event @model @auth(rules: [{allow: public}]) {
   id: ID!
-  date: AWSDateTime
-  title: String
-  image: String
-  details: String
-  speaker_name: String
-  speaker_bio: String
-  speaker_photo: String
-  location: String
-  priority: Int
-  type: String
+  date: AWSDateTime!
+  title: String!
+  image: String!
+  details: String!
+  location: String!
+  priority: Int!
+  type: String!
   link: String
+  EventSpeakers: [EventAuthor] @connection(keyName: "byEvent", fields: ["id"])
 }
 
 type Author @model @auth(rules: [{allow: public}]) {
@@ -25,6 +23,7 @@ type Author @model @auth(rules: [{allow: public}]) {
   github: String
   youtube: String
   posts: [AuthorPost] @connection(keyName: "byAuthor", fields: ["id"])
+  events: [EventAuthor] @connection(keyName: "byAuthor", fields: ["id"])
 }
 
 type Post @model @auth(rules: [{allow: public}]) @key(name: "byCreatedAtDate", fields: ["type", "createdAt"], queryField: "postsByCreatedAt") {
@@ -63,5 +62,13 @@ type PostTag @model(queries: null) @key(name: "byPost", fields: ["postID", "tagI
   tagID: ID!
   post: Post! @connection(fields: ["postID"])
   tag: Tag! @connection(fields: ["tagID"])
+}
+
+type EventAuthor @model(queries: null) @key(name: "byEvent", fields: ["eventID", "authorID"]) @key(name: "byAuthor", fields: ["authorID", "eventID"]) @auth(rules: [{allow: public}, {allow: public}]) {
+  id: ID!
+  eventID: ID!
+  authorID: ID!
+  event: Event! @connection(fields: ["eventID"])
+  author: Author! @connection(fields: ["authorID"])
 }
  

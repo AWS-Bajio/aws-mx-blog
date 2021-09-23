@@ -1,6 +1,66 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateEvent = /* GraphQL */ `
+  subscription OnCreateEvent {
+    onCreateEvent {
+      id
+      date
+      title
+      image
+      details
+      location
+      priority
+      type
+      link
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateEvent = /* GraphQL */ `
+  subscription OnUpdateEvent {
+    onUpdateEvent {
+      id
+      date
+      title
+      image
+      details
+      location
+      priority
+      type
+      link
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteEvent = /* GraphQL */ `
+  subscription OnDeleteEvent {
+    onDeleteEvent {
+      id
+      date
+      title
+      image
+      details
+      location
+      priority
+      type
+      link
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateAuthor = /* GraphQL */ `
   subscription OnCreateAuthor {
     onCreateAuthor {
@@ -14,18 +74,25 @@ export const onCreateAuthor = /* GraphQL */ `
       facebook
       github
       youtube
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       posts {
         items {
           id
           authorID
           postID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -42,18 +109,25 @@ export const onUpdateAuthor = /* GraphQL */ `
       facebook
       github
       youtube
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       posts {
         items {
           id
           authorID
           postID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -70,18 +144,25 @@ export const onDeleteAuthor = /* GraphQL */ `
       facebook
       github
       youtube
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       posts {
         items {
           id
           authorID
           postID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -89,34 +170,45 @@ export const onCreatePost = /* GraphQL */ `
   subscription OnCreatePost {
     onCreatePost {
       id
-      authors {
-        items {
-          id
-          authorID
-          postID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
       title
       content
       featured_media
       slug
       type
+      createdAt
+      excerpt
+      _version
+      _deleted
+      _lastChangedAt
+      updatedAt
+      authors {
+        items {
+          id
+          authorID
+          postID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
       tags {
         items {
           id
           postID
           tagID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
-      createdAt
-      excerpt
-      updatedAt
     }
   }
 `;
@@ -124,34 +216,45 @@ export const onUpdatePost = /* GraphQL */ `
   subscription OnUpdatePost {
     onUpdatePost {
       id
-      authors {
-        items {
-          id
-          authorID
-          postID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
       title
       content
       featured_media
       slug
       type
+      createdAt
+      excerpt
+      _version
+      _deleted
+      _lastChangedAt
+      updatedAt
+      authors {
+        items {
+          id
+          authorID
+          postID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
       tags {
         items {
           id
           postID
           tagID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
-      createdAt
-      excerpt
-      updatedAt
     }
   }
 `;
@@ -159,34 +262,45 @@ export const onDeletePost = /* GraphQL */ `
   subscription OnDeletePost {
     onDeletePost {
       id
-      authors {
-        items {
-          id
-          authorID
-          postID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
       title
       content
       featured_media
       slug
       type
+      createdAt
+      excerpt
+      _version
+      _deleted
+      _lastChangedAt
+      updatedAt
+      authors {
+        items {
+          id
+          authorID
+          postID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
       tags {
         items {
           id
           postID
           tagID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
-      createdAt
-      excerpt
-      updatedAt
     }
   }
 `;
@@ -194,20 +308,27 @@ export const onCreateTag = /* GraphQL */ `
   subscription OnCreateTag {
     onCreateTag {
       id
+      name
+      slug
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       posts {
         items {
           id
           postID
           tagID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
-      name
-      slug
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -215,20 +336,27 @@ export const onUpdateTag = /* GraphQL */ `
   subscription OnUpdateTag {
     onUpdateTag {
       id
+      name
+      slug
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       posts {
         items {
           id
           postID
           tagID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
-      name
-      slug
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -236,20 +364,27 @@ export const onDeleteTag = /* GraphQL */ `
   subscription OnDeleteTag {
     onDeleteTag {
       id
+      name
+      slug
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       posts {
         items {
           id
           postID
           tagID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
-      name
-      slug
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -259,6 +394,11 @@ export const onCreateAuthorPost = /* GraphQL */ `
       id
       authorID
       postID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       author {
         id
         firstName
@@ -270,31 +410,38 @@ export const onCreateAuthorPost = /* GraphQL */ `
         facebook
         github
         youtube
-        posts {
-          nextToken
-        }
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
+        posts {
+          nextToken
+          startedAt
+        }
       }
       post {
         id
-        authors {
-          nextToken
-        }
         title
         content
         featured_media
         slug
         type
-        tags {
-          nextToken
-        }
         createdAt
         excerpt
+        _version
+        _deleted
+        _lastChangedAt
         updatedAt
+        authors {
+          nextToken
+          startedAt
+        }
+        tags {
+          nextToken
+          startedAt
+        }
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -304,6 +451,11 @@ export const onUpdateAuthorPost = /* GraphQL */ `
       id
       authorID
       postID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       author {
         id
         firstName
@@ -315,31 +467,38 @@ export const onUpdateAuthorPost = /* GraphQL */ `
         facebook
         github
         youtube
-        posts {
-          nextToken
-        }
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
+        posts {
+          nextToken
+          startedAt
+        }
       }
       post {
         id
-        authors {
-          nextToken
-        }
         title
         content
         featured_media
         slug
         type
-        tags {
-          nextToken
-        }
         createdAt
         excerpt
+        _version
+        _deleted
+        _lastChangedAt
         updatedAt
+        authors {
+          nextToken
+          startedAt
+        }
+        tags {
+          nextToken
+          startedAt
+        }
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -349,6 +508,11 @@ export const onDeleteAuthorPost = /* GraphQL */ `
       id
       authorID
       postID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       author {
         id
         firstName
@@ -360,31 +524,38 @@ export const onDeleteAuthorPost = /* GraphQL */ `
         facebook
         github
         youtube
-        posts {
-          nextToken
-        }
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
+        posts {
+          nextToken
+          startedAt
+        }
       }
       post {
         id
-        authors {
-          nextToken
-        }
         title
         content
         featured_media
         slug
         type
-        tags {
-          nextToken
-        }
         createdAt
         excerpt
+        _version
+        _deleted
+        _lastChangedAt
         updatedAt
+        authors {
+          nextToken
+          startedAt
+        }
+        tags {
+          nextToken
+          startedAt
+        }
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -394,35 +565,47 @@ export const onCreatePostTag = /* GraphQL */ `
       id
       postID
       tagID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       post {
         id
-        authors {
-          nextToken
-        }
         title
         content
         featured_media
         slug
         type
-        tags {
-          nextToken
-        }
         createdAt
         excerpt
+        _version
+        _deleted
+        _lastChangedAt
         updatedAt
+        authors {
+          nextToken
+          startedAt
+        }
+        tags {
+          nextToken
+          startedAt
+        }
       }
       tag {
         id
-        posts {
-          nextToken
-        }
         name
         slug
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        posts {
+          nextToken
+          startedAt
+        }
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -432,35 +615,47 @@ export const onUpdatePostTag = /* GraphQL */ `
       id
       postID
       tagID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       post {
         id
-        authors {
-          nextToken
-        }
         title
         content
         featured_media
         slug
         type
-        tags {
-          nextToken
-        }
         createdAt
         excerpt
+        _version
+        _deleted
+        _lastChangedAt
         updatedAt
+        authors {
+          nextToken
+          startedAt
+        }
+        tags {
+          nextToken
+          startedAt
+        }
       }
       tag {
         id
-        posts {
-          nextToken
-        }
         name
         slug
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        posts {
+          nextToken
+          startedAt
+        }
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -470,35 +665,47 @@ export const onDeletePostTag = /* GraphQL */ `
       id
       postID
       tagID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       post {
         id
-        authors {
-          nextToken
-        }
         title
         content
         featured_media
         slug
         type
-        tags {
-          nextToken
-        }
         createdAt
         excerpt
+        _version
+        _deleted
+        _lastChangedAt
         updatedAt
+        authors {
+          nextToken
+          startedAt
+        }
+        tags {
+          nextToken
+          startedAt
+        }
       }
       tag {
         id
-        posts {
-          nextToken
-        }
         name
         slug
         createdAt
         updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        posts {
+          nextToken
+          startedAt
+        }
       }
-      createdAt
-      updatedAt
     }
   }
 `;

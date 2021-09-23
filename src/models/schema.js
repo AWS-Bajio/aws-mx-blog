@@ -14,70 +14,49 @@ export const schema = {
                     "name": "date",
                     "isArray": false,
                     "type": "AWSDateTime",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "title": {
                     "name": "title",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "image": {
                     "name": "image",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "details": {
                     "name": "details",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "speaker_name": {
-                    "name": "speaker_name",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "speaker_bio": {
-                    "name": "speaker_bio",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "speaker_photo": {
-                    "name": "speaker_photo",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "location": {
                     "name": "location",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "priority": {
                     "name": "priority",
                     "isArray": false,
                     "type": "Int",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "type": {
                     "name": "type",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "link": {
@@ -86,6 +65,20 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
+                },
+                "EventSpeakers": {
+                    "name": "EventSpeakers",
+                    "isArray": true,
+                    "type": {
+                        "model": "EventAuthor"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "event"
+                    }
                 }
             },
             "syncable": true,
@@ -99,6 +92,99 @@ export const schema = {
                     "type": "auth",
                     "properties": {
                         "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "EventAuthor": {
+            "name": "EventAuthor",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "event": {
+                    "name": "event",
+                    "isArray": false,
+                    "type": {
+                        "model": "Event"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "eventID"
+                    }
+                },
+                "author": {
+                    "name": "author",
+                    "isArray": false,
+                    "type": {
+                        "model": "Author"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "association": {
+                        "connectionType": "BELONGS_TO",
+                        "targetName": "authorID"
+                    }
+                }
+            },
+            "syncable": true,
+            "pluralName": "EventAuthors",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {
+                        "queries": null
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byEvent",
+                        "fields": [
+                            "eventID",
+                            "authorID"
+                        ]
+                    }
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byAuthor",
+                        "fields": [
+                            "authorID",
+                            "eventID"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            },
                             {
                                 "allow": "public",
                                 "operations": [
@@ -191,6 +277,20 @@ export const schema = {
                     "isArray": true,
                     "type": {
                         "model": "AuthorPost"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": "author"
+                    }
+                },
+                "events": {
+                    "name": "events",
+                    "isArray": true,
+                    "type": {
+                        "model": "EventAuthor"
                     },
                     "isRequired": false,
                     "attributes": [],
@@ -628,5 +728,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "bdc1812389e99ecadfbfab58f35cfecd"
+    "version": "3a7b48c14a0d270ba6d551afe6162d61"
 };

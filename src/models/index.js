@@ -4,10 +4,11 @@ import { schema } from './schema';
 
 
 
-const { Event, Author, AuthorPost, Post, PostTag, Tag } = initSchema(schema);
+const { Event, EventAuthor, Author, AuthorPost, Post, PostTag, Tag } = initSchema(schema);
 
 export {
   Event,
+  EventAuthor,
   Author,
   AuthorPost,
   Post,
