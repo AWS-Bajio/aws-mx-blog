@@ -1,6 +1,108 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateEvent = /* GraphQL */ `
+  subscription OnCreateEvent {
+    onCreateEvent {
+      id
+      date
+      title
+      image
+      details
+      location
+      priority
+      type
+      link
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      EventSpeakers {
+        items {
+          id
+          eventID
+          authorID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onUpdateEvent = /* GraphQL */ `
+  subscription OnUpdateEvent {
+    onUpdateEvent {
+      id
+      date
+      title
+      image
+      details
+      location
+      priority
+      type
+      link
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      EventSpeakers {
+        items {
+          id
+          eventID
+          authorID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onDeleteEvent = /* GraphQL */ `
+  subscription OnDeleteEvent {
+    onDeleteEvent {
+      id
+      date
+      title
+      image
+      details
+      location
+      priority
+      type
+      link
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      EventSpeakers {
+        items {
+          id
+          eventID
+          authorID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
 export const onCreateAuthor = /* GraphQL */ `
   subscription OnCreateAuthor {
     onCreateAuthor {
@@ -24,6 +126,20 @@ export const onCreateAuthor = /* GraphQL */ `
           id
           authorID
           postID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+      events {
+        items {
+          id
+          eventID
+          authorID
           _version
           _deleted
           _lastChangedAt
@@ -68,6 +184,20 @@ export const onUpdateAuthor = /* GraphQL */ `
         nextToken
         startedAt
       }
+      events {
+        items {
+          id
+          eventID
+          authorID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -94,6 +224,20 @@ export const onDeleteAuthor = /* GraphQL */ `
           id
           authorID
           postID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+      events {
+        items {
+          id
+          eventID
+          authorID
           _version
           _deleted
           _lastChangedAt
@@ -359,6 +503,10 @@ export const onCreateAuthorPost = /* GraphQL */ `
           nextToken
           startedAt
         }
+        events {
+          nextToken
+          startedAt
+        }
       }
       post {
         id
@@ -416,6 +564,10 @@ export const onUpdateAuthorPost = /* GraphQL */ `
           nextToken
           startedAt
         }
+        events {
+          nextToken
+          startedAt
+        }
       }
       post {
         id
@@ -470,6 +622,10 @@ export const onDeleteAuthorPost = /* GraphQL */ `
         createdAt
         updatedAt
         posts {
+          nextToken
+          startedAt
+        }
+        events {
           nextToken
           startedAt
         }
@@ -642,6 +798,183 @@ export const onDeletePostTag = /* GraphQL */ `
         _deleted
         _lastChangedAt
         posts {
+          nextToken
+          startedAt
+        }
+      }
+    }
+  }
+`;
+export const onCreateEventAuthor = /* GraphQL */ `
+  subscription OnCreateEventAuthor {
+    onCreateEventAuthor {
+      id
+      eventID
+      authorID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      event {
+        id
+        date
+        title
+        image
+        details
+        location
+        priority
+        type
+        link
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        EventSpeakers {
+          nextToken
+          startedAt
+        }
+      }
+      author {
+        id
+        firstName
+        lastName
+        photo
+        description
+        twitter
+        linkedin
+        facebook
+        github
+        youtube
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        posts {
+          nextToken
+          startedAt
+        }
+        events {
+          nextToken
+          startedAt
+        }
+      }
+    }
+  }
+`;
+export const onUpdateEventAuthor = /* GraphQL */ `
+  subscription OnUpdateEventAuthor {
+    onUpdateEventAuthor {
+      id
+      eventID
+      authorID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      event {
+        id
+        date
+        title
+        image
+        details
+        location
+        priority
+        type
+        link
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        EventSpeakers {
+          nextToken
+          startedAt
+        }
+      }
+      author {
+        id
+        firstName
+        lastName
+        photo
+        description
+        twitter
+        linkedin
+        facebook
+        github
+        youtube
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        posts {
+          nextToken
+          startedAt
+        }
+        events {
+          nextToken
+          startedAt
+        }
+      }
+    }
+  }
+`;
+export const onDeleteEventAuthor = /* GraphQL */ `
+  subscription OnDeleteEventAuthor {
+    onDeleteEventAuthor {
+      id
+      eventID
+      authorID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      event {
+        id
+        date
+        title
+        image
+        details
+        location
+        priority
+        type
+        link
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        EventSpeakers {
+          nextToken
+          startedAt
+        }
+      }
+      author {
+        id
+        firstName
+        lastName
+        photo
+        description
+        twitter
+        linkedin
+        facebook
+        github
+        youtube
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        posts {
+          nextToken
+          startedAt
+        }
+        events {
           nextToken
           startedAt
         }

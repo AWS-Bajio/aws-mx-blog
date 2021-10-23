@@ -57,6 +57,110 @@ export const postsByTag = /* GraphQL */ `
     }
   }
 `;
+export const getEvent = /* GraphQL */ `
+  query GetEvent($id: ID!) {
+    getEvent(id: $id) {
+      id
+      date
+      title
+      image
+      details
+      location
+      priority
+      type
+      link
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      EventSpeakers {
+        items {
+          id
+          eventID
+          authorID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const listEvents = /* GraphQL */ `
+  query ListEvents(
+    $filter: ModelEventFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        date
+        title
+        image
+        details
+        location
+        priority
+        type
+        link
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        EventSpeakers {
+          nextToken
+          startedAt
+        }
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncEvents = /* GraphQL */ `
+  query SyncEvents(
+    $filter: ModelEventFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncEvents(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        date
+        title
+        image
+        details
+        location
+        priority
+        type
+        link
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        EventSpeakers {
+          nextToken
+          startedAt
+        }
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
 export const getAuthor = /* GraphQL */ `
   query GetAuthor($id: ID!) {
     getAuthor(id: $id) {
@@ -80,6 +184,20 @@ export const getAuthor = /* GraphQL */ `
           id
           authorID
           postID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+      events {
+        items {
+          id
+          eventID
+          authorID
           _version
           _deleted
           _lastChangedAt
@@ -119,6 +237,10 @@ export const listAuthors = /* GraphQL */ `
           nextToken
           startedAt
         }
+        events {
+          nextToken
+          startedAt
+        }
       }
       nextToken
       startedAt
@@ -155,6 +277,10 @@ export const syncAuthors = /* GraphQL */ `
         createdAt
         updatedAt
         posts {
+          nextToken
+          startedAt
+        }
+        events {
           nextToken
           startedAt
         }
@@ -552,6 +678,67 @@ export const syncPostTags = /* GraphQL */ `
           _version
           _deleted
           _lastChangedAt
+        }
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncEventAuthors = /* GraphQL */ `
+  query SyncEventAuthors(
+    $filter: ModelEventAuthorFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncEventAuthors(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        eventID
+        authorID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        event {
+          id
+          date
+          title
+          image
+          details
+          location
+          priority
+          type
+          link
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        author {
+          id
+          firstName
+          lastName
+          photo
+          description
+          twitter
+          linkedin
+          facebook
+          github
+          youtube
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
         }
       }
       nextToken
