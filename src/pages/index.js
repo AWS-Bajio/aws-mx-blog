@@ -10,13 +10,11 @@ import PostsTable from '../components/posts/PostsTable';
 import PropTypes from 'prop-types';
 
 const Index = ({ data, pageContext }) => {
-  // const {
-  //   posts: {
-  //     postsByCreatedAt: { items: postItems },
-  //   },
-  // } = data;
-
-  const postItems = [];
+  const {
+    posts: {
+      postsByCreatedAt: { items: postItems },
+    },
+  } = data;
 
   const { numPages, currentPage } = pageContext;
 
