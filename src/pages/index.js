@@ -3,18 +3,20 @@ import React from 'react';
 import ScrollingLayout from '../components/ScrollingLayout';
 import SEO from '../components/SEO';
 import SideNav from '../components/sidenav';
-import DeprecatedPostItem from '../components/DeprecatedPostItem';
+import FeaturedPostItem from '../components/FeaturedPostItem';
 import Wrapper from '../styles/blog';
 import { graphql } from 'gatsby';
 import PostsTable from '../components/posts/PostsTable';
 import PropTypes from 'prop-types';
 
 const Index = ({ data, pageContext }) => {
-  const {
-    posts: {
-      postsByCreatedAt: { items: postItems },
-    },
-  } = data;
+  // const {
+  //   posts: {
+  //     postsByCreatedAt: { items: postItems },
+  //   },
+  // } = data;
+
+  const postItems = [];
 
   const { numPages, currentPage } = pageContext;
 
@@ -22,16 +24,11 @@ const Index = ({ data, pageContext }) => {
     <Wrapper>
       <ScrollingLayout location="/blog">
         <SEO title="AWS MX Blog" />
+        {postItems?.length && <FeaturedPostItem post={postItems[0]} />}
         <div className="container">
           <div className="main-content">
-            <div className="featured-post">
-              <DeprecatedPostItem
-                post={postItems[0]}
-                key="0"
-                i="0"
-                isFeaturedPost={true}
-              />
-            </div>
+            {/** TODO: What happens if there are no posts? */}
+
             <div className="posts-and-side-content">
               {/* The featured post is removed using slice(1)*/}
               <PostsTable

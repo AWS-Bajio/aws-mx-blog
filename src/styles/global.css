@@ -3,6 +3,7 @@ CSS Global file
 **/ 
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Urbanist:400,800&display=swap');
 @import "~hover.css";
 
 html {
@@ -15,11 +16,10 @@ html, body {
 }
 
 * {
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Urbanist', sans-serif !important;
 }
 
 h1, h2, h3, h4, h5 {
-    text-transform: uppercase;
     font-weight: bolder;
     margin: 0;
 }
