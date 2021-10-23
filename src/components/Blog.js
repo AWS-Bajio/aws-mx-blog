@@ -3,7 +3,7 @@ import PageLayout from './page-layout';
 import styled from 'styled-components';
 import 'react-multi-carousel/lib/styles.css';
 import Title from './title';
-import DeprecatedPostItem from './DeprecatedPostItem';
+import FeaturedPostItem from './FeaturedPostItem';
 import Paginator from './paginator';
 import { graphql } from 'gatsby';
 
@@ -66,7 +66,7 @@ const Blog = ({ pageContext: { posts, numPages, currentPage } }) => {
               {/*cover*/}
               <div className="post-container">
                 {posts.map((post, i) => (
-                  <DeprecatedPostItem
+                  <FeaturedPostItem
                     post={post}
                     key={i}
                     i={i}
