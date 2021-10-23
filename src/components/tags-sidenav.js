@@ -45,6 +45,11 @@ const TagsSideNav = () => {
             id
             name
             slug
+            posts {
+              items {
+                id
+              }
+            }
           }
         }
       }
@@ -53,12 +58,17 @@ const TagsSideNav = () => {
 
   const tags = data.posts.listTags.items
   let tagsElem = []
-  tags.forEach(tag => {
-    tagsElem.push(
-      <Link key={tag.id} to={"/publicaciones/" + tag.slug}>
-        {tag.name}
-      </Link>
-    )
+  tags.forEach((tag) => {
+    const {id,slug,name,posts:{items}} = tag;
+    console.log("itemssss",items)
+    if(items && items.length > 0){
+      console.log(`push ${slug} ${name}`);
+      tagsElem.push(
+        <Link key={id} to={"/publicaciones/" + slug}>
+          {name}
+        </Link>
+      )
+    }
   })
 
   return (
