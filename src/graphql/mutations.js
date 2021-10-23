@@ -21,6 +21,20 @@ export const createEvent = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      EventSpeakers {
+        items {
+          id
+          eventID
+          authorID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -44,6 +58,20 @@ export const updateEvent = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      EventSpeakers {
+        items {
+          id
+          eventID
+          authorID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -67,6 +95,20 @@ export const deleteEvent = /* GraphQL */ `
       _lastChangedAt
       createdAt
       updatedAt
+      EventSpeakers {
+        items {
+          id
+          eventID
+          authorID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -96,6 +138,20 @@ export const createAuthor = /* GraphQL */ `
           id
           authorID
           postID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+      events {
+        items {
+          id
+          eventID
+          authorID
           _version
           _deleted
           _lastChangedAt
@@ -143,6 +199,20 @@ export const updateAuthor = /* GraphQL */ `
         nextToken
         startedAt
       }
+      events {
+        items {
+          id
+          eventID
+          authorID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -172,6 +242,20 @@ export const deleteAuthor = /* GraphQL */ `
           id
           authorID
           postID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
+      events {
+        items {
+          id
+          eventID
+          authorID
           _version
           _deleted
           _lastChangedAt
@@ -458,6 +542,10 @@ export const createAuthorPost = /* GraphQL */ `
           nextToken
           startedAt
         }
+        events {
+          nextToken
+          startedAt
+        }
       }
       post {
         id
@@ -518,6 +606,10 @@ export const updateAuthorPost = /* GraphQL */ `
           nextToken
           startedAt
         }
+        events {
+          nextToken
+          startedAt
+        }
       }
       post {
         id
@@ -575,6 +667,10 @@ export const deleteAuthorPost = /* GraphQL */ `
         createdAt
         updatedAt
         posts {
+          nextToken
+          startedAt
+        }
+        events {
           nextToken
           startedAt
         }
@@ -756,6 +852,192 @@ export const deletePostTag = /* GraphQL */ `
         _deleted
         _lastChangedAt
         posts {
+          nextToken
+          startedAt
+        }
+      }
+    }
+  }
+`;
+export const createEventAuthor = /* GraphQL */ `
+  mutation CreateEventAuthor(
+    $input: CreateEventAuthorInput!
+    $condition: ModelEventAuthorConditionInput
+  ) {
+    createEventAuthor(input: $input, condition: $condition) {
+      id
+      eventID
+      authorID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      event {
+        id
+        date
+        title
+        image
+        details
+        location
+        priority
+        type
+        link
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        EventSpeakers {
+          nextToken
+          startedAt
+        }
+      }
+      author {
+        id
+        firstName
+        lastName
+        photo
+        description
+        twitter
+        linkedin
+        facebook
+        github
+        youtube
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        posts {
+          nextToken
+          startedAt
+        }
+        events {
+          nextToken
+          startedAt
+        }
+      }
+    }
+  }
+`;
+export const updateEventAuthor = /* GraphQL */ `
+  mutation UpdateEventAuthor(
+    $input: UpdateEventAuthorInput!
+    $condition: ModelEventAuthorConditionInput
+  ) {
+    updateEventAuthor(input: $input, condition: $condition) {
+      id
+      eventID
+      authorID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      event {
+        id
+        date
+        title
+        image
+        details
+        location
+        priority
+        type
+        link
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        EventSpeakers {
+          nextToken
+          startedAt
+        }
+      }
+      author {
+        id
+        firstName
+        lastName
+        photo
+        description
+        twitter
+        linkedin
+        facebook
+        github
+        youtube
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        posts {
+          nextToken
+          startedAt
+        }
+        events {
+          nextToken
+          startedAt
+        }
+      }
+    }
+  }
+`;
+export const deleteEventAuthor = /* GraphQL */ `
+  mutation DeleteEventAuthor(
+    $input: DeleteEventAuthorInput!
+    $condition: ModelEventAuthorConditionInput
+  ) {
+    deleteEventAuthor(input: $input, condition: $condition) {
+      id
+      eventID
+      authorID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      event {
+        id
+        date
+        title
+        image
+        details
+        location
+        priority
+        type
+        link
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        EventSpeakers {
+          nextToken
+          startedAt
+        }
+      }
+      author {
+        id
+        firstName
+        lastName
+        photo
+        description
+        twitter
+        linkedin
+        facebook
+        github
+        youtube
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        posts {
+          nextToken
+          startedAt
+        }
+        events {
           nextToken
           startedAt
         }

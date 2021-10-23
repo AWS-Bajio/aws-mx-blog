@@ -13,7 +13,7 @@ type Event @model @auth(rules: [{allow: public}]) @key(name: "byCreatedAtDate", 
   EventSpeakers: [EventAuthor] @connection(keyName: "byEvent", fields: ["id"])
 }
 
-type Author @model @auth(rules: [{allow: public}]) {
+type Author @model @auth(rules: [{ allow: public }]) {
   id: ID!
   firstName: String
   lastName: String
@@ -28,7 +28,14 @@ type Author @model @auth(rules: [{allow: public}]) {
   events: [EventAuthor] @connection(keyName: "byAuthor", fields: ["id"])
 }
 
-type Post @model @auth(rules: [{allow: public}]) @key(name: "byCreatedAtDate", fields: ["type", "createdAt"], queryField: "postsByCreatedAt") {
+type Post
+  @model
+  @auth(rules: [{ allow: public }])
+  @key(
+    name: "byCreatedAtDate"
+    fields: ["type", "createdAt"]
+    queryField: "postsByCreatedAt"
+  ) {
   id: ID!
   authors: [AuthorPost] @connection(keyName: "byPost", fields: ["id"])
   title: String!
@@ -41,7 +48,14 @@ type Post @model @auth(rules: [{allow: public}]) @key(name: "byCreatedAtDate", f
   excerpt: String
 }
 
-type Tag @model @auth(rules: [{allow: public}]) @key(name: "byUpdatedAt", fields: ["updatedAt"], queryField: "tagsByUpdatedAt") {
+type Tag
+  @model
+  @auth(rules: [{ allow: public }])
+  @key(
+    name: "byUpdatedAt"
+    fields: ["updatedAt"]
+    queryField: "tagsByUpdatedAt"
+  ) {
   id: ID!
   posts: [PostTag] @connection(keyName: "byTag", fields: ["id"])
   name: String
@@ -50,7 +64,11 @@ type Tag @model @auth(rules: [{allow: public}]) @key(name: "byUpdatedAt", fields
   updatedAt: AWSDateTime!
 }
 
-type AuthorPost @model(queries: null) @key(name: "byAuthor", fields: ["authorID", "postID"]) @key(name: "byPost", fields: ["postID", "authorID"]) @auth(rules: [{allow: public}, {allow: public}]) {
+type AuthorPost
+  @model(queries: null)
+  @key(name: "byAuthor", fields: ["authorID", "postID"])
+  @key(name: "byPost", fields: ["postID", "authorID"])
+  @auth(rules: [{ allow: public }, { allow: public }]) {
   id: ID!
   authorID: ID!
   postID: ID!
@@ -58,7 +76,11 @@ type AuthorPost @model(queries: null) @key(name: "byAuthor", fields: ["authorID"
   post: Post! @connection(fields: ["postID"])
 }
 
-type PostTag @model(queries: null) @key(name: "byPost", fields: ["postID", "tagID"]) @key(name: "byTag", fields: ["tagID", "postID"], queryField: "postsByTag") @auth(rules: [{allow: public}, {allow: public}]) {
+type PostTag
+  @model(queries: null)
+  @key(name: "byPost", fields: ["postID", "tagID"])
+  @key(name: "byTag", fields: ["tagID", "postID"], queryField: "postsByTag")
+  @auth(rules: [{ allow: public }, { allow: public }]) {
   id: ID!
   postID: ID!
   tagID: ID!
@@ -66,11 +88,14 @@ type PostTag @model(queries: null) @key(name: "byPost", fields: ["postID", "tagI
   tag: Tag! @connection(fields: ["tagID"])
 }
 
-type EventAuthor @model(queries: null) @key(name: "byEvent", fields: ["eventID", "authorID"]) @key(name: "byAuthor", fields: ["authorID", "eventID"]) @auth(rules: [{allow: public}, {allow: public}]) {
+type EventAuthor
+  @model(queries: null)
+  @key(name: "byEvent", fields: ["eventID", "authorID"])
+  @key(name: "byAuthor", fields: ["authorID", "eventID"])
+  @auth(rules: [{ allow: public }, { allow: public }]) {
   id: ID!
   eventID: ID!
   authorID: ID!
   event: Event! @connection(fields: ["eventID"])
   author: Author! @connection(fields: ["authorID"])
 }
- 

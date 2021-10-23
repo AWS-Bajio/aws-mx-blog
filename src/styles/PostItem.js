@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 export default styled.div`
   display: inline-block;
@@ -43,10 +43,6 @@ export default styled.div`
     height: 200px;
   }
 
-  .img-cover {
-    height: 200px;
-  }
-
   /*
   ************
   Media Queries
@@ -58,4 +54,4 @@ export default styled.div`
       height: 400px;
     }
   }
-`
+`;
