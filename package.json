@@ -34,7 +34,7 @@
     "moment-timezone": "^0.5.27",
     "prismjs": "^1.23.0",
     "prop-types": "^15.7.2",
-    "react": "^16.13.0",
+    "react": "^16.14.0",
     "react-dom": "^16.13.0",
     "react-helmet": "^6.1.0",
     "react-html-parser": "^2.0.2",
