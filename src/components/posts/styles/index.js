@@ -18,6 +18,7 @@ export const Wrapper  = styled.div`
 export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1;
 
   @media only screen and (min-width: 992px) {
     margin-right: 20px;
