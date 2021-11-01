@@ -21,5 +21,3 @@ Leonardo Lara Lira (Full Stack Developer)
 Isidro Emmanuel Vasquez Cortes (Back End Developer)
 
 Mario Alberto Negrete Rodríguez (AWS Community Builder)
-
-An amazing project
