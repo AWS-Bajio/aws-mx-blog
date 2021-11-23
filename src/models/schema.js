@@ -66,6 +66,20 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "sortType": {
+                    "name": "sortType",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "EventSpeakers": {
                     "name": "EventSpeakers",
                     "isArray": true,
@@ -87,6 +101,17 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "eventsByCreatedAt",
+                        "fields": [
+                            "sortType",
+                            "createdAt"
+                        ],
+                        "queryField": "eventsByCreatedAt"
+                    }
                 },
                 {
                     "type": "auth",
@@ -728,5 +753,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "3a7b48c14a0d270ba6d551afe6162d61"
+    "version": "f896b028086856a0ea57f4336ce9f854"
 };

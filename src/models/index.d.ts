@@ -14,6 +14,8 @@ export declare class Event {
   readonly priority: number;
   readonly type: string;
   readonly link?: string;
+  readonly createdAt: string;
+  readonly sortType: number;
   readonly EventSpeakers?: (EventAuthor | null)[];
   constructor(init: ModelInit<Event>);
   static copyOf(source: Event, mutator: (draft: MutableModel<Event>) => MutableModel<Event> | void): Event;
