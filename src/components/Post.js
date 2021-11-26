@@ -40,12 +40,10 @@ const Post = ({
               </Moment>
             </p>
             <p className="no-margin accent-text-color">
-              Por: {authors.items[0].author.firstName}
+              Por: {authors.items[0]?.author.firstName}
             </p>
           </div>
-          <MarkdownPreview 
-            source={content} 
-          />
+          <MarkdownPreview source={content} />
           {id && (
             <Disqus
               config={{
@@ -75,7 +73,7 @@ Post.propTypes = {
 export default Post;
 
 export const postQuery = graphql`
-  query($id: ID!) {
+  query ($id: ID!) {
     posts {
       getPost(id: $id) {
         id
