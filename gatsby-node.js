@@ -198,23 +198,3 @@ exports.createPages = async ({ graphql, actions }) => {
   await createAllBlogPages(createPage, pageTemplate, graphql);
   return createAllTagPages(tags, createPage, tagTemplate, graphql);
 };
-
-exports.onCreateWebpackConfig = ({ stage, plugins, actions }) => {
-  actions.setWebpackConfig({
-    module: {
-      rules: [],
-    },
-    plugins: [
-      plugins.define({
-        __DEVELOPMENT__: stage === `develop` || stage === `develop-html`,
-      }),
-    ],
-    node: {
-      console: true,
-      fs: 'empty',
-      net: 'empty',
-      tls: 'empty',
-    },
-    devtool: 'eval-source-map',
-  });
-};

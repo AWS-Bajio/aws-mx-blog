@@ -1,4 +1,3 @@
-import 'react-multi-carousel/lib/styles.css';
 import React from 'react';
 import ScrollingLayout from '../components/ScrollingLayout';
 import SEO from '../components/SEO';
@@ -8,6 +7,7 @@ import Wrapper from '../styles/blog';
 import { graphql } from 'gatsby';
 import PostsTable from '../components/posts/PostsTable';
 import PropTypes from 'prop-types';
+import 'react-multi-carousel/lib/styles.css';
 
 const Index = ({ data, pageContext }) => {
   const {
