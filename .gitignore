@@ -76,7 +76,6 @@ yarn-error.log
 .vscode/*
 
 #npm and yarn locks
-yarn.lock
 package-lock.json
 
 #amplify
