@@ -19,11 +19,18 @@ const SearchBar = () => {
           items {
             name
             slug
+            posts {
+              items {
+                id
+              }
+            }
           }
         }
       }
     }
   `);
+
+  console.log("tags",tags);
 
   /**
    * Called when the close button on the search bar is clicked.
@@ -89,11 +96,14 @@ const SearchBar = () => {
       </div>
       <div id="search-content">
         <ul id="search-content-list">
-          {tags.map(({ name, slug }, key) => (
-            <li key={key}>
-              <Link to={`/publicaciones/${slug}`}>{name}</Link>
-            </li>
-          ))}
+          {tags.map(({ name, slug, posts: {items} }, key) =>  {
+            if(items.length > 0){
+              return <li key={key}><Link to={`/publicaciones/${slug}`}>{name}</Link></li>
+            }else{
+              return null
+            }
+          }
+          )}
         </ul>
         <ul>
           <li className="search-icon">

@@ -160,10 +160,7 @@ const createAllTagPages = async (tags, createPage, template, graphql) => {
         const numPages = Math.ceil(posts.length / postsPerPage);
         Array.from({ length: numPages }).forEach((_, i) => {
           createPage({
-            path:
-              i === 0
-                ? `/publicaciones/${tag.slug}`
-                : `/publicaciones/${tag.slug}/${i + 1}`,
+            path: i === 0 ? `/publicaciones/${tag.slug}` : `/publicaciones/${tag.slug}/${i + 1}`,
             component: slash(template),
             context: {
               id: `blog-template-${i + 1}`,
