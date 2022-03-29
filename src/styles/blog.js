@@ -6,8 +6,6 @@ const wrapper = styled.div`
   min-height: 100vh;
 
   .container {
-    margin: 0 auto;
-    padding: 0 30px;
     max-width: 100%;
   }
 
@@ -43,14 +41,14 @@ const wrapper = styled.div`
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
     .container {
-      max-width: 720px;
+      // max-width: 720px;
     }
   }
 
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
     .container {
-      max-width: 960px;
+      // max-width: 960px;
     }
 
     .featured-post {
@@ -69,8 +67,7 @@ const wrapper = styled.div`
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
     .container {
-      max-width: 1200px;
-      padding: 0 50px;
+      // max-width: 1200px;
     }
 
     .posts-and-side-content {

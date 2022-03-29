@@ -99,19 +99,16 @@ export default styled.div`
   #header-search {
     height: 70px;
     padding-top: 15px;
-    margin-right: 26px;
-    margin-left: 26px;
   }
 
   #search-content,
   #header-mobile {
     height: 70px;
-    padding-left: 2%;
-    padding-right: 3%;
   }
   
   #search-content-list {
     float:left;
+    padding-inline-start: 0px;
  }   
 
   .last-item {

@@ -59,8 +59,6 @@ export default styled.header`
   }
   
   div {
-    margin: 0 auto;
-
     .menu-item-toolbar {
       float: right;
       height: 30px;
