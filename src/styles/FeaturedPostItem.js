@@ -42,10 +42,16 @@ export default styled.div`
   Media Queries
   *************
   */
-  /* Medium and small devices (992px and down) */
-  @media only screen and (max-width: 992px) {
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    height: 25vh;
+
+    .img-cover {
+      height: 25vh;
+    }
+
     .featured-title {
-      font-size: 3rem;
+      font-size: 2rem;
     }
   }
 `;
