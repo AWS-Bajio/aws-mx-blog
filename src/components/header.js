@@ -54,7 +54,7 @@ const Header = ({location}) => {
     <Wrapper style={{backgroundColor: location === "/" ? "rgba(0,0,0,0)" : "white" }}>
       <Menu/>
       <div id="header-content" className="container">
-        <div id="header-mobile" className="container hide-on-large-and-up">
+        <div id="header-mobile" className="container">
           <div
             className="menu-icon-container pointer"
             onClick={ ()=>openMenu(!menu) }
@@ -77,9 +77,9 @@ const Header = ({location}) => {
           </div>
         </div>
         <Link to="/">
-          <Logo className="logo-icon hide-on-med-and-down"/>
+          <Logo className="logo-icon logo-large"/>
         </Link>
-        <ul className="menu-item-toolbar hide-on-med-and-down">
+        <ul className="menu-item-toolbar">
           <li>
             <Link to="/">blog</Link>
           </li>

@@ -6,14 +6,14 @@ const wrapper = styled.div`
   min-height: 100vh;
 
   .container {
-    margin: 0 auto;
-    padding: 0 30px;
     max-width: 100%;
+    margin: 0 30px;
   }
 
   .main-content {
     display: flex;
     flex-direction: column;
+    min-width: 320px;
   }
 
   .featured-post {
@@ -40,17 +40,23 @@ const wrapper = styled.div`
   Media Queries
   *************
   */
-  /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (min-width: 768px) {
+
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  }
+
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     .container {
-      max-width: 720px;
+      margin: 0 50px;
     }
   }
 
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
+
     .container {
-      max-width: 960px;
+      margin: 0 100px;
     }
 
     .featured-post {
@@ -63,22 +69,6 @@ const wrapper = styled.div`
 
     .side-content {
       min-width: 300px;
-    }
-  }
-
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
-  @media only screen and (min-width: 1200px) {
-    .container {
-      max-width: 1200px;
-      padding: 0 50px;
-    }
-
-    .posts-and-side-content {
-      flex-direction: row;
-    }
-
-    .side-content {
-      min-width: 400px;
     }
   }
 `;

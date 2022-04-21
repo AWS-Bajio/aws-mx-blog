@@ -18,7 +18,6 @@ const SearchWrapper = styled.header`
   z-index: 999999999;
   
   div {
-    margin: 0 auto;
     padding: 0.5rem 0rem;
 
     ul  {

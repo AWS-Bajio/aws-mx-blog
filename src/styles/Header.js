@@ -59,8 +59,6 @@ export default styled.header`
   }
   
   div {
-    margin: 0 auto;
-
     .menu-item-toolbar {
       float: right;
       height: 30px;
@@ -77,15 +75,13 @@ export default styled.header`
   }
   
   .logo-icon {
-    width:210px;
+    width:125px;
     margin: auto;
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
   }
-  
-  
   
   #main-content {
     background-color: white;
@@ -95,10 +91,6 @@ export default styled.header`
     left: 0;
     }
   
-  
-  
-  
-
   a {
     vertical-align: middle;
   }
@@ -120,7 +112,7 @@ export default styled.header`
  
   #header-content,
   #header-mobile {
-    height: 70px;
+    height: 60px;
   }
   
   
@@ -160,8 +152,14 @@ export default styled.header`
     align-self: center;
   }
 
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (max-width: 768px) {
+  /*
+  ************
+  Media Queries
+  *************
+  */
+
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     #header-mobile {
       display: grid;
       grid-template-columns: auto auto auto;
@@ -169,6 +167,7 @@ export default styled.header`
       align-content: center;
       grid-gap: 18px;
       justify-items: center;
+      margin: 0;
     }
 
     .menu-icon-container {
@@ -182,29 +181,44 @@ export default styled.header`
     }
     
     .logo-icon {
-      width:210px;
       margin: auto;
       position: initial;
-  }
+    } 
   
-  .large-input-mobile {
-      font-size: 14px;
-    }
-  }
-
-  /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (min-width: 768px) and (max-width: 992px) {
-    #header-mobile {
-      display: grid;
-      grid-template-columns: auto auto auto;
-      color: black;
-      align-content: center;
-      grid-gap: 18px;
-    }
-    
     .large-input-mobile {
       font-size: 14px;
     }
 
+    .menu-item-toolbar {
+      display: none;
+    }
+    
+    .logo-large {
+      display: none
+    }
+  }
+
+  @media only screen and (min-device-width : 481px) {
+    #header-mobile {
+      display: none;
+    }
+
+    .menu-item-toolbar {
+      display: none
+    }
+  }
+
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .logo-icon {
+      width: 170px;;
+    } 
+  }
+
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .logo-icon {
+      width: 270px;;
+    }
   }
 `

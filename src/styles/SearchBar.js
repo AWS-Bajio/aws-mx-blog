@@ -99,19 +99,17 @@ export default styled.div`
   #header-search {
     height: 70px;
     padding-top: 15px;
-    margin-right: 26px;
-    margin-left: 26px;
   }
 
   #search-content,
   #header-mobile {
     height: 70px;
-    padding-left: 2%;
-    padding-right: 3%;
+    margin: 0 30px;
   }
   
   #search-content-list {
     float:left;
+    padding-inline-start: 0px;
  }   
 
   .last-item {
@@ -130,8 +128,8 @@ export default styled.div`
     align-self: center;
   }
 
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (max-width: 768px) {
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     #header-mobile {
       display: grid;
       grid-template-columns: auto auto auto;
@@ -152,14 +150,25 @@ export default styled.div`
     }
   }
 
-  /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (min-width: 768px) and (max-width: 992px) {
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     #header-mobile {
       display: grid;
       grid-template-columns: auto auto auto;
       color: black;
       align-content: center;
       grid-gap: 18px;
+    }
+
+    #search-content {
+      margin: 0 50px
+    }
+  }
+
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    #search-content {
+      margin: 0 100px
     }
   }
 `
